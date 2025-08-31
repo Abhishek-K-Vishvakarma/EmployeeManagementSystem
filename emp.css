@@ -1,0 +1,26 @@
+
+table, th{
+  background-color: #3B2F2F;
+  border: 2px solid blue;
+  padding: 5px;
+  margin: auto;
+  font-size: 20px;
+  box-shadow: -5px 5px 5px #00FF00;
+}
+#tdata{
+border:  2px solid yellow;
+
+}
+.tab{
+  border: 2px solid yellow;
+}
+th{
+  color: #F87217;
+  background-color: #800000;
+}
+#message {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 15%;
+}

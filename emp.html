@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://i.pinimg.com/564x/45/35/e4/4535e4336a39d6fb156b37fe2f4c66f5.jpg">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+  <title>Employee</title>
+  <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="emp.css">
+</head>
+<body style="background-color: #342D7E;">
+  <h1 style="text-align: center; text-shadow: 1px 3px 5px blue; color: yellow;">Employee Entry Table</h1>
+  <div class="container">
+    <div class="card " style="box-shadow: -8px 8px 5px #00FF00; background-color: rgb(37, 150, 190);">
+    <div class=" text-center  p-5 ml-3">
+    <div style="gap: 10px; display: flex; padding: 5px; height: 50px; font-size: 20px;"><input type="text" placeholder="Enter Emp Id" id="inp1" style="color: #348bc2;" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Name" id="inp2" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Email" id="inp3" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Salary" id="inp4" onkeyup="Pettern()"></div>
+    <div  style="gap: 10px; display: flex; padding: 5px; height: 50px; font-size: 20px;"><input type="text" placeholder="Enter Emp Contact" id="inp5" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Experience" id="inp6" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Bonus" id="inp7" onkeyup="Pettern()"><input type="text" placeholder="Enter Emp Increment" id="inp8" onkeyup="Pettern()"></div>
+    <div  style="gap: 10px; display: flex; padding: 5px; height: 50px; font-size: 20px;"><input type="text" placeholder="Enter Emp TotalSal" id="inp9" onkeyup="Pettern()">
+    <select style="width: 235px;" id="inp10" onchange="Pettern()">
+    <option>Select City</option>
+    <option>Varanasi</option>
+    <option>Noida</option>
+    <option>Gurugram</option>
+    </select>
+    <select style="width: 235px;" id="inp11" onchange="Pettern()">
+      <option>Select Position</option>
+      <option>FrontEnd</option>
+      <option>BackEnd</option>
+      <option>FullStack</option>
+    </select>
+      <input type="button" value="Submit" id="btn" style="width: 230px; font-size: 20px; background-color:  rgb(37, 150, 190);box-shadow: -2px 2px 2px  #342D7E; border: none; color: white;"> 
+    </div>
+    </div>
+    </div>
+  </div><br/><br/>
+  <h1 style="text-align: center; text-shadow: -2px 1px 2px #5865F2; color: #00FF7F;" >Employee Data Table:</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th>Emp Email</th>
+        <th>Emp Salary</th>
+        <th>Emp Contact</th>
+        <th>Emp Experience</th>
+        <th>Emp Bonus</th>
+        <th>Emp Incendure</th>
+        <th>Emp TotalSal</th>
+        <th>Emp City</th>
+        <th>Emp Department</th>
+        <th>Operation</th>
+        <th><input type="search" id="show" onkeyup="Search()" placeholder="search..."><span class="material-symbols-outlined">search</span></th>
+      </tr>
+    </thead>
+    <tbody id="tdata">
+    </tbody>
+  </table>
+
+ <div id="message">
+  <div class="alert alert-warning  align-items-center text-danger" role="alert" id="err1" role="alert" hidden>
+    Enter EMP Id:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar1" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" role="alert" id="err2" role="alert" hidden>
+    Enter EMP Name:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar2" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err3" role="alert" hidden>
+    Enter EMP EMAIL:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar3" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err4" role="alert" hidden>
+    Enter EMP SALARY:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar4" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err5" role="alert" hidden>
+    Enter EMP CONTACT:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar5" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err6" role="alert" hidden>
+    Enter EMP EXPERIENCE:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar6" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err7" role="alert" hidden>
+    Enter EMP BONUS:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar7" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err8" role="alert" hidden>
+    Emter EMP INCREMENT:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar8" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err9" role="alert" hidden>
+    Enter EMP TOTALSALRY:
+    <div class="progress mt-2" style="height: 5px;">
+      <div id="progressBar9" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;" >
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning  align-items-center text-danger" id="err10" role="alert" hidden>
+    Enter EMP CITY:
+    <div class="progress mt-2">
+      <div id="progressBar10" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-warning  align-items-center text-danger" id="err11" role="alert" hidden>
+    Enter EMP POSITION:
+    <div class="progress mt-2">
+      <div id="progressBar11" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="alert align-items-center text-white bg-warning border-1" role="alert" id="err11" hidden>
+  please enter Select Position
+  <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar11" role="progressbar"
+      style="width: 10%;"></div>
+  </div>
+</div> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
